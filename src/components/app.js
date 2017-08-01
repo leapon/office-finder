@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import SearchBar from './search_bar';
 
 export default class App extends Component {
   render() {
     return (
-      <div>Office Finder</div>
+      <div>
+        <h4>办公室查询</h4>
+        <SearchBar />
+      </div>
     );
   }
 }
