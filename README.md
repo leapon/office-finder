@@ -1,31 +1,17 @@
-# ReduxSimpleStarter
+# OfficeFinder
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
-
-### Getting Started
-
-There are two methods for getting started with this repo.
-
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
-
+# Start
 ```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
+> git clone https://github.com/leapon/office-finder.git
+> cd office-finder
 > npm install
 > npm start
 ```
 
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+Visit webapge at: http://localhost:8080/
 
-```
-> npm install
-> npm start
-```
 
-Git Setup
----------
+# Git Setup
 ```
 git config user.name $GIT_USER_NAME
 git config user.email $GIT_USER_EMAIL
