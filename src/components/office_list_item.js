@@ -7,7 +7,11 @@ class OfficeListItem extends Component {
   }
   render() {
     return (
-      <div>{ this.props.office.name }</div>
+      <div>
+        { this.props.office.name }
+      </div>
     )
   }
 }
+
+export default OfficeListItem;
