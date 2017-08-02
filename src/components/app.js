@@ -5,7 +5,12 @@ import OfficeList from './office_list';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state ={ offices:[] };
+    this.state ={
+      offices:[
+        { name:'office1' },
+        { name:'office2' }
+      ]
+    };
   }
   render() {
     return (
