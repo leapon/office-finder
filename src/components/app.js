@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import OfficeList from './office_list';
 
-export default class App extends Component {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={ offices:[] };
+  }
   render() {
     return (
       <div>
         <h4>办公室查询</h4>
         <SearchBar />
-        <OfficeList />
+        <OfficeList offices={ this.state.offices }/>
       </div>
     );
   }
 }
+
+export default App;
