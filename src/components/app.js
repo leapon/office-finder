@@ -12,11 +12,14 @@ class App extends Component {
       ]
     };
   }
+  onSearchTermChange(term) {
+    console.log('search term change:', term);
+  }
   render() {
     return (
       <div>
         <h4>办公室查询</h4>
-        <SearchBar />
+        <SearchBar onSearchTermChange={ this.onSearchTermChange }/>
         <OfficeList offices={ this.state.offices }/>
       </div>
     );
