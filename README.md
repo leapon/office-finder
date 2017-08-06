@@ -11,6 +11,16 @@
 Visit webapge at: http://localhost:8080/
 
 
+# Start webserver to pulic on port 8090
+```
+node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 8090
+
+or
+
+npm run start_pub_8090
+```
+
+
 # Git Setup
 ```
 git config user.name $GIT_USER_NAME

@@ -6,6 +6,7 @@
   "repository": "git@github.com:leapon/office-finder.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start_pub_8090": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 8090",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
