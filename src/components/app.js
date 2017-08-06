@@ -11,7 +11,13 @@ class App extends Component {
   }
   onSearchTermChange(term) {
     console.log('search term change:', term);
-    const offices = term.split('').map( item => { return { name:'office_' + item} });
+    const offices = term.split('').map( (item, index) => {
+      console.log('>>>', item, index);
+      return {
+        id:'item_' + index + '_' + item,
+        name:'office_' + item
+      }
+    });
     this.setState({ offices });
   }
   render() {
