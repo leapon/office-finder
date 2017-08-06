@@ -25,6 +25,9 @@ class App extends Component {
       <div>
         <h4>办公室查询</h4>
         <SearchBar onSearchTermChange={ this.onSearchTermChange.bind(this) }/>
+
+      </div>
+      <div>
         <OfficeList offices={ this.state.offices }/>
       </div>
     );
