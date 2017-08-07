@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import SearchBar from './search_bar';
 import OfficeList from './office_list';
 import OfficeDetail from './office_detail';
@@ -11,17 +12,21 @@ class App extends Component {
       activeOffice: null,
       offices: []
     };
-    console.log('>>> offices:', offices);
   }
   onSearchTermChange(term) {
     console.log('search term change:', term);
-    const offices = term.split('').map( (item, index) => {
-      return {
-        id:'item_' + index + '_' + item,
-        name:'office_' + item
-      }
+    if (!term) {
+      this.setState({ activeOffice:null });
+      this.setState({ offices:[] });
+      return;
+    }
+    const matchedOffices = _.filter(offices, (office) => {
+      return office.name.indexOf(term) > -1;
     });
-    this.setState({ offices });
+    if (matchedOffices.length > 0) {
+      this.setState({ activeOffice:matchedOffices[0] });
+    }
+    this.setState({ offices:matchedOffices });
   }
   render() {
     return (
