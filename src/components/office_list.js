@@ -18,6 +18,7 @@ class OfficeList extends Component {
       <div>
         <div>Office List</div>
         offices #: { this.props.offices.length }
+        <hr/>
         { officeItems }
       </div>
     );

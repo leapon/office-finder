@@ -18,13 +18,15 @@ class OfficeDetail extends Component {
     } else {
       return (
         <div>
-          <div>Office Detail</div>
+          <b>{ this.props.office.name }</b>
+          <br/>
           <br/>
           <div>
-            <p>Name: { this.props.office.name }</p>
             <p>Address: { this.props.office.address }</p>
             <p>Price: ${ this.props.office.price }</p>
             <p>Size: { this.props.office.size } SF</p>
+            <p>Description:</p>
+            <p>{ this.props.office.description }</p>
             <p><img src={ this.props.office.images[0]} className="office-image" /></p>
           </div>
         </div>
