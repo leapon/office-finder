@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import OfficeList from './office_list';
 import OfficeDetail from './office_detail';
+import offices from '../data/offices.json';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      offices:[]
+      activeOffice: null,
+      offices: []
     };
+    console.log('>>> offices:', offices);
   }
   onSearchTermChange(term) {
     console.log('search term change:', term);

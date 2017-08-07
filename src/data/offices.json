@@ -1,0 +1,8 @@
+export default [
+  {
+  "name": "office101",
+  "description": "",
+  "address": "200 main street, Boston MA",
+  "price": 70,
+  }
+];
