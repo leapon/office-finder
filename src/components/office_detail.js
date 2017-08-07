@@ -23,6 +23,9 @@ class OfficeDetail extends Component {
           <div>
             <p>Name: { this.props.office.name }</p>
             <p>Address: { this.props.office.address }</p>
+            <p>Price: ${ this.props.office.price }</p>
+            <p>Size: { this.props.office.size } SF</p>
+            <p><img src={ this.props.office.images[0]} className="office-image" /></p>
           </div>
         </div>
       )
