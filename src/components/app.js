@@ -24,8 +24,10 @@ class App extends Component {
     return (
       <div>
         <div className="row search-header">
-          <h4>办公室查询</h4>
+          <h4 className="col-md-12">办公室查询</h4>
+          <div className="col-md-6">
           <SearchBar onSearchTermChange={ this.onSearchTermChange.bind(this) } />
+          </div>
         </div>
         <div className="row content-body">
           <div className="col-md-8">
