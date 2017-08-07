@@ -11,6 +11,7 @@ class OfficeList extends Component {
       return <OfficeListItem
         key={ office.name }
         office={ office }
+        onOfficeSelect = { this.props.onOfficeSelect }
       />
     });
     return (

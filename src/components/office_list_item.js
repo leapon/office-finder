@@ -7,7 +7,7 @@ class OfficeListItem extends Component {
   }
   render() {
     return (
-      <div onClick={ (event) => { console.log('office clicked:', this.props.office.name )} }>
+      <div onClick={ (event) => { this.props.onOfficeSelect(this.props.office); } }>
         { this.props.office.name }
       </div>
     )
