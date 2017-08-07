@@ -7,9 +7,11 @@ class OfficeDetail extends Component {
   }
   render() {
     return (
-      <div>Office Detail</div>
       <div>
-        { this.props.office.name }
+        <div>Office Detail</div>
+        <div>
+          { this.props.office && this.props.office.name || 'no office selected'}
+        </div>
       </div>
     )
   }

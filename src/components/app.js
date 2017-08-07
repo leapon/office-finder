@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import OfficeList from './office_list';
+import OfficeDetail from './office_detail';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class App extends Component {
   onSearchTermChange(term) {
     console.log('search term change:', term);
     const offices = term.split('').map( (item, index) => {
-      console.log('>>>', item, index);
       return {
         id:'item_' + index + '_' + item,
         name:'office_' + item
@@ -23,12 +23,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h4>办公室查询</h4>
-        <SearchBar onSearchTermChange={ this.onSearchTermChange.bind(this) }/>
-
-      </div>
-      <div>
-        <OfficeList offices={ this.state.offices }/>
+        <div className="row search-header">
+          <h4>办公室查询</h4>
+          <SearchBar onSearchTermChange={ this.onSearchTermChange.bind(this) } />
+        </div>
+        <div className="row content-body">
+          <div className="col-md-8">
+            <OfficeDetail office={ this.state.activeOffice } />
+          </div>
+          <div className="col-md-4">
+            <OfficeList offices={ this.state.offices } />
+          </div>
+        </div>
       </div>
     );
   }
