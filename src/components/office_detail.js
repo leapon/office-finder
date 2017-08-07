@@ -6,14 +6,27 @@ class OfficeDetail extends Component {
     super(props);
   }
   render() {
-    return (
-      <div>
-        <div>Office Detail</div>
+    if (!this.props.office) {
+      return (
         <div>
-          { this.props.office && this.props.office.name || 'no office selected'}
+          <div>Office Detail</div>
+          <div>
+            No office selected
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <div>Office Detail</div>
+          <br/>
+          <div>
+            <p>Name: { this.props.office.name }</p>
+            <p>Address: { this.props.office.address }</p>
+          </div>
+        </div>
+      )
+    }
   }
 }
 
