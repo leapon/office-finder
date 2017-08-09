@@ -47,8 +47,7 @@ class App extends Component {
           </div>
           <div className="col-md-4">
             <OfficeList
-              onOfficeSelect={ this.onOfficeSelect.bind(this) }
-              offices={ this.state.offices } />
+              onOfficeSelect={ this.onOfficeSelect.bind(this) } />
           </div>
         </div>
       </div>

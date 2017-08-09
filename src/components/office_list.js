@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import OfficeListItem from './office_list_item';
 
 class OfficeList extends Component {
@@ -25,4 +26,9 @@ class OfficeList extends Component {
   }
 };
 
-export default OfficeList;
+function mapStateToProps(state) {
+  return {
+    offices: state.offices
+  }
+}
+export default connect(mapStateToProps)(OfficeList);
