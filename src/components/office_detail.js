@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 class OfficeDetail extends Component {
   constructor(props) {
@@ -35,4 +36,10 @@ class OfficeDetail extends Component {
   }
 }
 
-export default OfficeDetail;
+function mapStateToProps(state) {
+  return {
+    office: state.activeOffice
+  }
+}
+
+export default connect(mapStateToProps)(OfficeDetail);
