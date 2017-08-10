@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import OfficeListItem from './office_list_item';
-import { selectOffice } from '../actions/index';
-import { bindActionCreators } from 'redux';
 
 class OfficeList extends Component {
   constructor(props) {
@@ -34,8 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectOffice:selectOffice }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(OfficeList);
+export default connect(mapStateToProps)(OfficeList);
