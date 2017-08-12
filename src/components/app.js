@@ -28,10 +28,6 @@ class App extends Component {
     }
     this.setState({ offices:matchedOffices });
   }
-  onOfficeSelect(office) {
-    console.log('>>> onOfficeSelect', office);
-    this.setState({ activeOffice:office });
-  }
   render() {
     return (
       <div>
@@ -46,8 +42,7 @@ class App extends Component {
             <OfficeDetail office={ this.state.activeOffice } />
           </div>
           <div className="col-md-4">
-            <OfficeList
-              onOfficeSelect={ this.onOfficeSelect.bind(this) } />
+            <OfficeList />
           </div>
         </div>
       </div>
