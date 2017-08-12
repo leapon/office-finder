@@ -10,15 +10,22 @@ class SearchBar extends Component {
     const term = event.target.value;
     this.setState({ term });
     console.log('search_bar term change:', term);
-    //this.props.onSearchTermChange(term);
+  }
+  onFormSubmit(event) {
+    event.preventDefault();
   }
   render () {
     return (
       <div>
-        <input
-          className="form-control"
-          value= { this.state.term }
-          onChange={ this.onChange.bind(this) } />
+        <form className="input-group" onSubmit={this.onFormSubmit}>
+          <input
+            className="form-control"
+            value= { this.state.term }
+            onChange={ this.onChange.bind(this) } />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-secondary">Search</button>
+          </span>
+        </form>
       </div>
     )
   }
