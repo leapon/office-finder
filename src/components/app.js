@@ -9,16 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
-  onSearchTermChange(term) {
-    console.log('search term change:', term);
-  }
   render() {
     return (
       <div>
         <div className="row search-header">
           <h4 className="col-md-12">办公室查询</h4>
           <div className="col-md-6">
-          <SearchBar onSearchTermChange={ this.onSearchTermChange.bind(this) } />
+          <SearchBar />
           </div>
         </div>
         <div className="row content-body">

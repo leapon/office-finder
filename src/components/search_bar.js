@@ -9,7 +9,8 @@ class SearchBar extends Component {
   onChange(event) {
     const term = event.target.value;
     this.setState({ term });
-    this.props.onSearchTermChange(term);
+    console.log('search_bar term change:', term);
+    //this.props.onSearchTermChange(term);
   }
   render () {
     return (
