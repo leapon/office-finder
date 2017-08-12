@@ -8,13 +8,16 @@ import offices from '../data/offices.json';
 class App extends Component {
   constructor(props) {
     super(props);
+    /*
     this.state ={
       activeOffice: null,
       offices: []
     };
+    */
   }
   onSearchTermChange(term) {
     console.log('search term change:', term);
+    /*
     if (!term) {
       this.setState({ activeOffice:null });
       this.setState({ offices:[] });
@@ -27,6 +30,7 @@ class App extends Component {
       this.setState({ activeOffice:matchedOffices[0] });
     }
     this.setState({ offices:matchedOffices });
+    */
   }
   render() {
     return (
@@ -39,7 +43,7 @@ class App extends Component {
         </div>
         <div className="row content-body">
           <div className="col-md-8">
-            <OfficeDetail office={ this.state.activeOffice } />
+            <OfficeDetail />
           </div>
           <div className="col-md-4">
             <OfficeList />
