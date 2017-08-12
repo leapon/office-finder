@@ -8,29 +8,9 @@ import offices from '../data/offices.json';
 class App extends Component {
   constructor(props) {
     super(props);
-    /*
-    this.state ={
-      activeOffice: null,
-      offices: []
-    };
-    */
   }
   onSearchTermChange(term) {
     console.log('search term change:', term);
-    /*
-    if (!term) {
-      this.setState({ activeOffice:null });
-      this.setState({ offices:[] });
-      return;
-    }
-    const matchedOffices = _.filter(offices, (office) => {
-      return office.name.indexOf(term) > -1;
-    });
-    if (matchedOffices.length > 0) {
-      this.setState({ activeOffice:matchedOffices[0] });
-    }
-    this.setState({ offices:matchedOffices });
-    */
   }
   render() {
     return (
