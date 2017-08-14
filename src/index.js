@@ -16,7 +16,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <h4>header</h4>
+        <div className="app-header">Office Finder</div>
         <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/booking/:id" component={OfficeBooking} />

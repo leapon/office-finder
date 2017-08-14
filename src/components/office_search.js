@@ -12,7 +12,6 @@ class App extends Component {
     return (
       <div>
         <div className="row search-header">
-          <h4 className="col-md-12">办公室查询</h4>
           <div className="col-md-6">
           <SearchBar />
           </div>
