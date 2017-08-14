@@ -13,7 +13,7 @@ Visit webapge at: http://localhost:8080/
 
 # Start webserver to pulic on port 8090
 ```
-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 8090
+node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 9010
 
 or
 
