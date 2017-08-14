@@ -19,6 +19,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/" component={OfficeSearch} />
+          <Route path="/office/:id" component={OfficeSearch} />
         </Switch>
       </div>
     </BrowserRouter>
