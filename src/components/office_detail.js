@@ -20,8 +20,7 @@ class OfficeDetail extends Component {
       return (
         <div>
           <b>{ this.props.office.name }</b>
-          <br/>
-          <br/>
+          <br/><br/>
           <div>
             <p>Address: { this.props.office.address }</p>
             <p>Price: ${ this.props.office.price }</p>
