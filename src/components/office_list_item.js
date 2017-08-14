@@ -10,7 +10,7 @@ class OfficeListItem extends Component {
   }
   render() {
     return (
-      <div onClick={ (event) => { this.props.selectOffice(this.props.office); } }>
+      <div className="office-list-item" onClick={ (event) => { this.props.selectOffice(this.props.office); } }>
         { this.props.office.name }
       </div>
     )

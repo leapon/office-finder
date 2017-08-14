@@ -6,3 +6,7 @@
 img.office-image {
   width: 100%;
 }
+
+.office-list-item:hover {
+  cursor: pointer;
+}
