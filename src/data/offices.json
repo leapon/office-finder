@@ -1,6 +1,6 @@
 export default [
   {
-    "name": "77 S Washington St",
+    "name": "1077 S Washington St",
     "description": "Gorgeous corner unit with exquisite renovations offers 4 windowed offices",
     "address": "77 S Washington St, Rockville, MD 20850",
     "site": "Old Town Plaza",
@@ -20,7 +20,7 @@ export default [
     ]
   },
   {
-    "name": "839 Quince Orchard Blvd",
+    "name": "1039 Quince Orchard Blvd",
     "description": "Rare first floor end unit suite facing main road - NO STEPS! Space features reception area, multiple windowed offices, large open area, kitchen, and two restrooms",
     "address": "839 Quince Orchard Blvd, Gaithersburg, MD 20878",
     "price": 399000,
@@ -34,7 +34,7 @@ export default [
     ]
   },
   {
-    "name": "950 Ridgebrook Rd",
+    "name": "1050 Ridgebrook Rd",
     "description": "Single story office condo for sale",
     "address": "950 Ridgebrook Rd, Sparks, MD 21152",
     "site": "The Highlands Business Center",
@@ -52,7 +52,7 @@ export default [
     ]
   },
   {
-    "name": "306 Crain Highway",
+    "name": "1006 Crain Highway",
     "description": "Walking distance to local amenities. Free on site parking. Great visibility.Perfect for law or any professional office. Close proximity to Glen Burnie District Courthouse.",
     "address": "306 Crain Highway, Glen Burnie, MD 21061",
     "price": 725000,

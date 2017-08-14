@@ -28,7 +28,7 @@ class OfficeList extends Component {
 
 function mapStateToProps(state) {
   return {
-    offices: state.offices
+    offices: state.offices || []
   }
 }
 
