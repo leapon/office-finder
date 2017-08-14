@@ -6,6 +6,7 @@ import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import OfficeSearch from './components/office_search';
+import OfficeBooking from './components/office_booking';
 import Hello from './components/hello';
 import reducers from './reducers';
 
@@ -18,8 +19,8 @@ ReactDOM.render(
         <h4>header</h4>
         <Switch>
           <Route path="/hello" component={Hello} />
+          <Route path="/booking/:id" component={OfficeBooking} />
           <Route path="/" component={OfficeSearch} />
-          <Route path="/office/:id" component={OfficeSearch} />
         </Switch>
       </div>
     </BrowserRouter>
