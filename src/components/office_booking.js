@@ -7,7 +7,8 @@ class BookingForm extends Component {
     super(props)
   }
   componentDidMount() {
-    console.log('>>> BookingForm component mounted');
+    const { id } = this.props.match.params;
+    console.log('>>> BookingForm component mounted - id:', id);
   }
   render() {
     return (
