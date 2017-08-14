@@ -3,7 +3,6 @@ import _ from 'lodash';
 import SearchBar from './search_bar';
 import OfficeList from './office_list';
 import OfficeDetail from './office_detail';
-//import offices from '../data/offices.json';
 
 class App extends Component {
   constructor(props) {

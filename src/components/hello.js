@@ -1,3 +1,5 @@
-export default function() {
-  return <div>hello</div>/
+import React, { Component } from 'react';
+
+export default () => {
+  return <div>hello</div>
 }
