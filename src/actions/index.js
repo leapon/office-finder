@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const SEARCH_OFFICE = 'SEARCH_OFFICE';
-const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW5AbGVhcG9uLmNvbSIsImlhdCI6MTUwMjU0NzU0M30.xQ93S6BTYKTCuPFubnNb_Gk9jyiVV0S4iKcorIvmPKE';
+const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW5AbGVhcG9uLmNvbSIsImlhdCI6MTUwMjY3MDYwMn0.yWXOFOaddAkuSKPMBaoONzyOz6zSjDKaNSRb1gk3Lfk';
 
 const OFFICE_SEARCH_URL = `localhost:8010/data/office/search?token=${API_KEY}`;
 
