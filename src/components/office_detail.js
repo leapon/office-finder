@@ -28,6 +28,8 @@ class OfficeDetail extends Component {
             <p>Description:</p>
             <p>{ this.props.office.description }</p>
             <p><img src={ this.props.office.images[0]} className="office-image" /></p>
+            <hr/>
+            <p>todo: google map</p>
           </div>
         </div>
       )
