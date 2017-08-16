@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class OfficeDetail extends Component {
   constructor(props) {
@@ -30,6 +31,10 @@ class OfficeDetail extends Component {
             <p><img src={ this.props.office.images[0]} className="office-image" /></p>
             <hr/>
             <p>todo: google map</p>
+            <hr/>
+            <Link className="btn btn-primary" to={`/booking/${this.props.office.size}`} >
+              Book office
+            </Link>
           </div>
         </div>
       )
