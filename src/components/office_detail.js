@@ -32,9 +32,10 @@ class OfficeDetail extends Component {
             <hr/>
             <p>todo: google map</p>
             <hr/>
-            <Link className="btn btn-primary" to={`/booking/${this.props.office.size}`} >
+            <Link className="btn btn-primary" to={`/booking/${this.props.office.id}`} >
               Book office
             </Link>
+            <br/><br/>
           </div>
         </div>
       )
