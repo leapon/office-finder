@@ -19,7 +19,7 @@ class BookingForm extends Component {
   }
   renderField(field) {
     return (
-      <div>
+      <div className="form-group">
         <label>{ field.label }</label>
         <input 
           className={ field.className } 
@@ -31,7 +31,7 @@ class BookingForm extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="col-md-6">
         <div>Booking Form</div>
         <div>Office id: { this.state.id }</div>
         <hr/>
@@ -40,6 +40,7 @@ class BookingForm extends Component {
             name="title"
             label="Title"
             component={ this.renderField }
+            className="form-control"
             />
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
