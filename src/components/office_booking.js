@@ -17,13 +17,25 @@ class BookingForm extends Component {
     event.preventDefault();
     console.log('>>> office booking form submit');
   }
+  renderField(field) {
+    return (
+      <div>
+        <label>{ field.label }</label>
+      </div>
+    );
+  }
   render() {
     return (
       <div>
         <div>Booking Form</div>
         <div>Office id: { this.state.id }</div>
         <hr/>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={ this.onSubmit }>
+          <Field 
+            name="title"
+            label="Title"
+            component={ this.renderField }
+            />
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -31,4 +43,4 @@ class BookingForm extends Component {
   }
 }
 
-export default BookingForm;
+export default reduxForm({ form:'OfficeBookingForm' })(BookingForm);
