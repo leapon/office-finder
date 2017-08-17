@@ -6,7 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 class BookingForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { id:'' };
+    this.state = { id:'', title:'test' };
   }
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -24,9 +24,9 @@ class BookingForm extends Component {
       <div className="form-group">
         <label>{ field.label }</label>
         <input 
+          { ...field.input }
           className={ className } 
           type="text"
-          { ...field.input }
         />
         <div className="text-help">
           { touched ? error : '' }
@@ -41,7 +41,7 @@ class BookingForm extends Component {
         <div>Booking Form</div>
         <div>Office id: { this.state.id }</div>
         <hr/>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={ handleSubmit(this.onSubmit) }>
           <Field 
             name="title"
             label="Title"
@@ -64,6 +64,7 @@ function validate(values) {
   if (!values.title) {
     errors.title = 'Enter a title';
   }
+  console.log('>>> validate:', values, errors);
   return errors;
 }
 
