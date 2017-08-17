@@ -13,34 +13,44 @@ class BookingForm extends Component {
     this.setState({ id });
     console.log('>>> BookingForm component mounted - id:', id);
   }
-  onSubmit(event) {
-    event.preventDefault();
-    console.log('>>> office booking form submit');
+  onSubmit(fields) {
+    //event.preventDefault();
+    console.log('>>> office booking form submit - fields', fields);
   }
-  renderField(field) {
+  renderInputField(field) {
+    const { meta:{ touched, error } } = field;
+    const className = `form-control ${ touched && error ? 'has-error' : '' }`;
     return (
       <div className="form-group">
         <label>{ field.label }</label>
         <input 
-          className={ field.className } 
+          className={ className } 
           type="text"
           { ...field.input }
         />
+        <div className="text-help">
+          { touched ? error : '' }
+        </div>
       </div>
     );
   }
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div className="col-md-6">
         <div>Booking Form</div>
         <div>Office id: { this.state.id }</div>
         <hr/>
-        <form onSubmit={ this.onSubmit }>
+        <form onSubmit={ handleSubmit }>
           <Field 
             name="title"
             label="Title"
-            component={ this.renderField }
-            className="form-control"
+            component={ this.renderInputField }
+            />
+          <Field 
+            name="value"
+            label="Value"
+            component={ this.renderInputField }
             />
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
@@ -57,4 +67,7 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({ form:'OfficeBookingForm' })(BookingForm);
+export default reduxForm({ 
+  form:'OfficeBookingForm',
+  validate: validate
+})(BookingForm);
