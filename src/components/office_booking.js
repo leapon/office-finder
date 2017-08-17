@@ -21,6 +21,11 @@ class BookingForm extends Component {
     return (
       <div>
         <label>{ field.label }</label>
+        <input 
+          className={ field.className } 
+          type="text"
+          { ...field.input }
+        />
       </div>
     );
   }
@@ -41,6 +46,14 @@ class BookingForm extends Component {
       </div>
     );
   }
+}
+
+function validate(values) {
+  const errors = {};
+  if (!values.title) {
+    errors.title = 'Enter a title';
+  }
+  return errors;
 }
 
 export default reduxForm({ form:'OfficeBookingForm' })(BookingForm);
