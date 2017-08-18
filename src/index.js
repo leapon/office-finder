@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
+import SimpleForm from './components/simple_form';
 import Hello from './components/hello';
 import reducers from './reducers';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/booking/:id" component={OfficeBooking} />
+          <Route path="/form/simple" component={SimpleForm} />
           <Route path="/" component={OfficeSearch} />
         </Switch>
       </div>

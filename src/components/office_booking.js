@@ -70,6 +70,6 @@ function validate(values) {
 }
 
 export default reduxForm({ 
-  form:'OfficeBookingForm',
+  form:'bookingForm',
   validate: validate
 })(BookingForm);
