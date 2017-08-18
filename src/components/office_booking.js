@@ -11,11 +11,13 @@ class BookingForm extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.setState({ id });
-    console.log('>>> BookingForm component mounted - id:', id);
+    console.log('BookingForm component mounted - id:', id);
+    this.props.change('id', id);
   }
   onSubmit(fields) {
     //event.preventDefault();
     console.log('>>> office booking form submit - fields', fields);
+    
   }
   renderInputField(field) {
     const { meta:{ touched, error } } = field;
@@ -43,15 +45,20 @@ class BookingForm extends Component {
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit) }>
           <Field 
+            name="id"
+            label="Office ID"
+            component={ this.renderInputField }
+          />
+          <Field 
             name="title"
             label="Title"
             component={ this.renderInputField }
-            />
+          />
           <Field 
             name="value"
             label="Value"
             component={ this.renderInputField }
-            />
+          />
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -64,12 +71,12 @@ function validate(values) {
   if (!values.title) {
     errors.title = 'Enter a title';
   }
-  console.log('validate input:', values);
-  console.log('validate errors:', errors);
+  console.log('validate - input:', values,'errors:', errors);
   return errors;
 }
 
 export default reduxForm({ 
   form:'bookingForm',
+  //initialValues: { id:this.state.id },
   validate: validate
 })(BookingForm);
