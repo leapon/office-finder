@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { bookOffice } from '../actions';
 
 class BookingForm extends Component {
   constructor(props) {
@@ -15,13 +16,15 @@ class BookingForm extends Component {
     this.props.change('id', id);
   }
   onSubmit(fields) {
-    //event.preventDefault();
-    console.log('>>> office booking form submit - fields', fields);
-    
+    console.log('office booking form submit - fields', fields);
+    this.props.bookOffice(fields, () => {
+      console.log('callback from bookOffice');
+      this.props.history.push('/');
+    });
   }
   renderInputField(field) {
     const { meta:{ touched, error } } = field;
-    const className = `form-group ${ touched && error ? 'has-danger' : 'has-success' }`;
+    const className = `form-group ${ touched && error ? 'has-danger' : '' }`;
     return (
       <div className={className}>
         <label>{ field.label }</label>
@@ -43,7 +46,7 @@ class BookingForm extends Component {
         <div>Booking Form</div>
         <div>Office id: { this.state.id }</div>
         <hr/>
-        <form onSubmit={ handleSubmit(this.onSubmit) }>
+        <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <Field 
             name="id"
             label="Office ID"
@@ -77,6 +80,7 @@ function validate(values) {
 
 export default reduxForm({ 
   form:'bookingForm',
-  //initialValues: { id:this.state.id },
   validate: validate
-})(BookingForm);
+})(
+  connect(null, { bookOffice })(BookingForm)
+);

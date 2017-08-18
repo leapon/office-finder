@@ -25,10 +25,12 @@ export function searchOffice(term) {
   }
 }
 
-export function bookOffice(data) {
+export function bookOffice(values, callback) {
   const url = `${OFFICE_BOOK_URL}`;
   console.log('bookOffice url:', url);
-  const request = axios.post(url, data);
+  console.log('bookOffice values:', values);
+  const request = axios.post(url, values)
+    .then(() => callback());
   return {
     type: BOOK_OFFICE,
     payload: request
