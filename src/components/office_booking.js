@@ -6,7 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 class BookingForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { id:'', title:'test' };
+    this.state = { id:'' };
   }
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -39,7 +39,7 @@ class BookingForm extends Component {
     return (
       <div className="col-md-6">
         <div>Booking Form</div>
-        <div>Office id: { this.state.title }</div>
+        <div>Office id: { this.state.id }</div>
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit) }>
           <Field 
