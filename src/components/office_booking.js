@@ -19,13 +19,13 @@ class BookingForm extends Component {
   }
   renderInputField(field) {
     const { meta:{ touched, error } } = field;
-    const className = `form-control ${ touched && error ? 'has-error' : '' }`;
+    const className = `form-group ${ touched && error ? 'has-danger' : 'has-success' }`;
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{ field.label }</label>
         <input 
           { ...field.input }
-          className={ className } 
+          className="form-control"
           type="text"
         />
         <div className="text-help">
