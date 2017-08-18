@@ -39,7 +39,7 @@ class BookingForm extends Component {
     return (
       <div className="col-md-6">
         <div>Booking Form</div>
-        <div>Office id: { this.state.id }</div>
+        <div>Office id: { this.state.title }</div>
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit) }>
           <Field 
@@ -64,7 +64,8 @@ function validate(values) {
   if (!values.title) {
     errors.title = 'Enter a title';
   }
-  console.log('>>> validate:', values, errors);
+  console.log('validate input:', values);
+  console.log('validate errors:', errors);
   return errors;
 }
 
