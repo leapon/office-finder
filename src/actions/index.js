@@ -29,7 +29,7 @@ export function bookOffice(values, callback) {
   const url = `${OFFICE_BOOK_URL}`;
   console.log('bookOffice url:', url);
   console.log('bookOffice values:', values);
-  const request = axios.get(url, values)
+  const request = axios.post(url, values)
     .then(() => callback());
   return {
     type: BOOK_OFFICE,
