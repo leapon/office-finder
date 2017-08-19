@@ -20,7 +20,7 @@ ReactDOM.render(
         <div className="app-header">Office Finder</div>
         <Switch>
           <Route path="/hello" component={Hello} />
-          <Route path="/booking/:id" component={OfficeBooking} />
+          <Route path="/office/:id/booking" component={OfficeBooking} />
           <Route path="/form/simple" component={SimpleForm} />
           <Route path="/" component={OfficeSearch} />
         </Switch>
