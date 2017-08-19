@@ -50,4 +50,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(OfficeDetail);
+export default connect(mapStateToProps)(BookingDetail);
