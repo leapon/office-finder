@@ -13,12 +13,12 @@ class BookingForm extends Component {
     const { id } = this.props.match.params;
     this.setState({ id });
     console.log('BookingForm component mounted - id:', id);
-    this.props.change('id', id);
+    this.props.change('office_id', id);
   }
   onSubmit(fields) {
     console.log('office booking form submit - fields', fields);
-    this.props.bookOffice(fields, () => {
-      console.log('callback from bookOffice');
+    this.props.bookOffice(fields, (data) => {
+      console.log('callback from bookOffice - data:', data);
       //this.props.history.push('/');
     });
   }
@@ -48,18 +48,23 @@ class BookingForm extends Component {
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <Field 
-            name="id"
+            name="office_id"
             label="Office ID"
             component={ this.renderInputField }
           />
           <Field 
-            name="title"
-            label="Title"
+            name="start_time"
+            label="Start Date"
             component={ this.renderInputField }
           />
           <Field 
-            name="value"
-            label="Value"
+            name="end_time"
+            label="End Date"
+            component={ this.renderInputField }
+          />
+          <Field 
+            name="price"
+            label="Price"
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Submit</button>
@@ -71,10 +76,12 @@ class BookingForm extends Component {
 
 function validate(values) {
   const errors = {};
-  if (!values.title) {
-    errors.title = 'Enter a title';
+  if (!values.start_time) {
+    errors.start_time = 'Enter start time';
   }
-  console.log('validate - input:', values,'errors:', errors);
+  if (!values.end_time) {
+    errors.end_time = 'Enter end time';
+  }
   return errors;
 }
 
