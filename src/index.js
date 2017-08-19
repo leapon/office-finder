@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Header from './components/header';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
@@ -18,6 +19,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
+        <Header/>
         <div className="app-header">Office Finder</div>
         <Switch>
           <Route path="/hello" component={Hello} />
