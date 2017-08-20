@@ -34,7 +34,7 @@ class OfficeDetail extends Component {
             <p>{ this.props.office.lat}, { this.props.office.lng }</p>
             <hr/>
             <Link className="btn btn-primary" to={`/office/${this.props.office.id}/booking`} >
-              Book office
+              Select Office
             </Link>
             <br/><br/>
           </div>

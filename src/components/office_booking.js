@@ -67,8 +67,9 @@ class BookingForm extends Component {
             label="Price"
             component={ this.renderInputField }
           />
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Book Office</button>
         </form>
+        <br/>
       </div>
     );
   }

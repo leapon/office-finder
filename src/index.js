@@ -6,6 +6,7 @@ import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header';
+import Footer from './components/footer';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route path="/form/simple" component={SimpleForm} />
           <Route path="/" component={OfficeSearch} />
         </Switch>
+        <Footer/>
       </div>
     </BrowserRouter>
   </Provider>,
