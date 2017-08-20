@@ -21,7 +21,6 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Header/>
-        <div className="app-header">Office Finder</div>
         <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/office/:id/booking" component={OfficeBooking} />
