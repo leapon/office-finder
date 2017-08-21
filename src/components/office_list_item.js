@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { selectOffice } from '../actions/index';
 
 class OfficeListItem extends Component {
   constructor(props) {
@@ -7,11 +10,15 @@ class OfficeListItem extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="office-list-item" onClick={ (event) => { this.props.selectOffice(this.props.office); } }>
         { this.props.office.name }
       </div>
     )
   }
 }
 
-export default OfficeListItem;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectOffice:selectOffice }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(OfficeListItem);
