@@ -10,9 +10,11 @@ import Footer from './components/footer';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
+import reducers from './reducers';
+
 import SimpleForm from './components/simple_form';
 import Hello from './components/hello';
-import reducers from './reducers';
+import Clock from './components/clock';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -25,7 +27,8 @@ ReactDOM.render(
           <Route path="/hello" component={Hello} />
           <Route path="/office/:id/booking" component={OfficeBooking} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
-          <Route path="/form/simple" component={SimpleForm} />
+          <Route path="/test/simple" component={SimpleForm} />
+          <Route path="/test/clock" component={Clock} />
           <Route path="/" component={OfficeSearch} />
         </Switch>
         <Footer/>
