@@ -20,6 +20,10 @@ or
 npm run start_pub_8090
 ```
 
+# Make production build with webpack
+```
+webpack -p --config ./webpack.config.js 
+```
 
 # Git Setup
 ```
