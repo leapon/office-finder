@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import GoogleMap from './google_map';
 
 class OfficeDetail extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class OfficeDetail extends Component {
             <hr/>
             <p>todo: google map</p>
             <p>{ this.props.office.lat}, { this.props.office.lng }</p>
+            <GoogleMap />
             <hr/>
             <Link className="btn btn-primary" to={`/office/${this.props.office.id}/booking`} >
               Select Office
