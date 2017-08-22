@@ -16,3 +16,8 @@ img.office-image {
 .office-list-item:hover {
   cursor: pointer;
 }
+
+.office-google-map {
+  width: 100%;
+  height: 300px;
+}
