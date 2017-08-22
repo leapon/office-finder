@@ -31,8 +31,7 @@ class OfficeDetail extends Component {
             <p>{ this.props.office.description }</p>
             <p><img src={ this.props.office.images[0]} className="office-image" /></p>
             <hr/>
-            <p>todo: google map</p>
-            <p>{ this.props.office.lat }, { this.props.office.lng }</p>
+            <p>Office Location</p>
             <GoogleMap lat={ this.props.office.lat } lng={ this.props.office.lng }/>
             <hr/>
             <Link className="btn btn-primary" to={`/office/${this.props.office.id}/booking`} >
