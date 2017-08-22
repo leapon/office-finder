@@ -24,7 +24,7 @@ class OfficeDetail extends Component {
           <br/><br/>
           <div>
             <p>Address: { this.props.office.address }</p>
-            <p>Price: ${ this.props.office.price }</p>
+            <p>Price: ${ this.props.office.rent_daily }/day</p>
             <p>Size: { this.props.office.size } SF</p>
             <p>Description:</p>
             <p>{ this.props.office.description }</p>
