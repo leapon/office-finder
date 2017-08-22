@@ -19,6 +19,7 @@ class BookingForm extends Component {
     console.log('office booking form submit - fields', fields);
     this.props.bookOffice(fields, (data) => {
       console.log('callback from bookOffice - data:', data);
+      //data: {error: null, docs: Array(1), info: {…}}
       //this.props.history.push('/');
     });
   }
