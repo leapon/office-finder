@@ -43,8 +43,8 @@ class BookingForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="col-md-6">
-        <div>Booking Form</div>
-        <div>Office id: { this.state.id }</div>
+        <br/>
+        <h4>Book Office</h4>
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <Field 
