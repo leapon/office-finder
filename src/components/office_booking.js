@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { bookOffice } from '../actions';
+import { getOfficeDetail, bookOffice } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class BookingForm extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class BookingForm extends Component {
     this.setState({ id });
     console.log('BookingForm component mounted - id:', id);
     this.props.change('office_id', id);
+    this.props.getOfficeDetail(id);
   }
   onSubmit(fields) {
     console.log('office booking form submit - fields', fields);
@@ -87,9 +89,13 @@ function validate(values) {
   return errors;
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getOfficeDetail, bookOffice }, dispatch);
+}
+
 export default reduxForm({ 
   form:'bookingForm',
   validate: validate
 })(
-  connect(null, { bookOffice })(BookingForm)
+  connect(null, mapDispatchToProps)(BookingForm)
 );
