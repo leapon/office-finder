@@ -47,7 +47,8 @@ class BookingForm extends Component {
     return (
       <div className="col-md-6">
         <br/>
-        <h4>Book Office</h4>
+        <h4>Office: { this.props.office && this.props.office.name }</h4>
+        <p>Price: ${ this.props.office && this.props.office.rent_daily }/day</p>
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <Field 
@@ -89,6 +90,12 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return {
+    office: state.activeOffice
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getOfficeDetail, bookOffice }, dispatch);
 }
@@ -97,5 +104,5 @@ export default reduxForm({
   form:'bookingForm',
   validate: validate
 })(
-  connect(null, mapDispatchToProps)(BookingForm)
+  connect(mapStateToProps, mapDispatchToProps)(BookingForm)
 );
