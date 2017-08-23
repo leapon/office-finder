@@ -25,6 +25,15 @@ npm run start_pub_8090
 webpack -p --config ./webpack.config.js 
 ```
 
+# Run test
+
+jest  // test all js files under __test__ subfolders
+
+or 
+
+npm run test  // test files under test/components
+
+
 # Git Setup
 ```
 git config user.name $GIT_USER_NAME
