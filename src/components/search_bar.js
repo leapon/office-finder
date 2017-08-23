@@ -13,11 +13,10 @@ class SearchBar extends Component {
   }
   onChange(event) {
     const term = event.target.value;
-    this.setState({ term });
-    console.log('search_bar term change:', term);
+    this.setState({ term }, this.onFormSubmit);
   }
   onFormSubmit(event) {
-    event.preventDefault();
+    event && event.preventDefault();
     this.props.searchOffice(this.state.term);
     console.log('search_bar submit:', this.state.term);
   }
