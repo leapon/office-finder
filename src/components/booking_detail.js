@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getBookingDetail } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class BookingDetail extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.setState({ id });
+    console.log('Booking id:', id);
+    //this.props.change('booking_id', id);
+    this.props.getBookingDetail(id);
+  }
   render() {
-    if (!this.props.office) {
+    if (!this.props.booking) {
       return (
         <div>
           <div>Booking Detail</div>
@@ -20,23 +29,15 @@ class BookingDetail extends Component {
     } else {
       return (
         <div>
-          <b>{ this.props.office.name }</b>
-          <br/><br/>
+          <h4>Booking Detail</h4>
+          <hr/>
           <div>
-            <p>Address: { this.props.office.address }</p>
-            <p>Price: ${ this.props.office.price }</p>
-            <p>Size: { this.props.office.size } SF</p>
-            <p>Description:</p>
-            <p>{ this.props.office.description }</p>
-            <p><img src={ this.props.office.images[0]} className="office-image" /></p>
-            <hr/>
-            <p>todo: google map</p>
-            <p>{ this.props.office.lat}, { this.props.office.lng }</p>
-            <hr/>
-            <Link className="btn btn-primary" to={`/booking/${this.props.office.id}`} >
-              Book office
-            </Link>
-            <br/><br/>
+            <p>Booking ID: { this.props.booking.office_id }</p>
+            <p>Start Time: { this.props.booking.start_time }</p>
+            <p>End Time: { this.props.booking.end_time }</p>
+            <p>Price: ${ this.props.booking.price }</p>
+            <p>Booked By: { this.props.booking.create_by }</p>
+            <p>Booked On: { this.props.booking.create_date }</p>
           </div>
         </div>
       )
@@ -46,8 +47,12 @@ class BookingDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    office: state.activeOffice
+    booking: state.activeBooking
   }
 }
 
-export default connect(mapStateToProps)(BookingDetail);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getBookingDetail }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookingDetail);
