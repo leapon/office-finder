@@ -25,6 +25,11 @@ npm run start_pub_8090
 webpack -p --config ./webpack.config.js 
 ```
 
+# Run with pm2
+```
+pm2 start ./start --name officefinder 
+```
+
 # Run test
 
 jest  // test all js files under __test__ subfolders
