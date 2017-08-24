@@ -17,3 +17,24 @@ test('mock callback test', () => {
   // The first argument of the second call to the function was 1
   expect(mockCallback.mock.calls[1][0]).toBe(1);
 })
+
+test('mock property test', () => {
+  const myMock = jest.fn();
+  
+  const a = new myMock();
+  const b = {};
+  const bound = myMock.bind(b);
+  bound('first arg', 'second arg');
+  
+  // The function was called twice 
+  expect(myMock.mock.calls.length).toBe(2);
+
+  // The first arg of the first call to the function was 'first arg'
+  expect(myMock.mock.calls[1][0]).toBe('first arg');
+
+  // The second arg of the first call to the function was 'second arg'
+  expect(myMock.mock.calls[1][1]).toBe('second arg');
+
+  // This function was instantiated exactly twice
+  expect(myMock.mock.instances.length).toBe(2);
+})
