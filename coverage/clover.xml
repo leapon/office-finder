@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1503598619043" clover="3.2.0">
+  <project timestamp="1503598619043" name="All files">
+    <metrics statements="15" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="5" elements="23" coveredelements="16" complexity="0" loc="15" ncloc="15" packages="1" files="2" classes="2">
+      <file name="clock.js" path="/Users/yueliu/git/office-finder/src/components/clock.js">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="simple_foo.js" path="/Users/yueliu/git/office-finder/src/components/simple_foo.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>
