@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import SimpleFoo from '../../src/components/simple_foo';
 
 describe('A suite', function() {
+  it('should render', () => {
+    const wrapper = shallow(<SimpleFoo />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+    
   it('should render without throwing an error', function() {
     expect(shallow(<SimpleFoo />).contains(<div className="foo">Simple Bar</div>)).toBe(true);
   });
