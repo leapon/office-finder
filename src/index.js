@@ -30,6 +30,7 @@ ReactDOM.render(
           <Route path="/user/signup" component={UserSignup} />
           <Route path="/about" component={About} />
           <Route path="/office/:id/booking" component={OfficeBooking} />
+          <Route path="/office/search" component={OfficeSearch} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
 
           <Route path="/hello" component={Hello} />
