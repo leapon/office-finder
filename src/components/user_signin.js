@@ -11,8 +11,7 @@ class UserSignin extends Component {
     this.state = {
       username:'',
       password:'',
-      signinData: {},
-      signinMessage: 'n/a'
+      signinMessage: ''
     };
   }
   onSubmit(fields) {
@@ -24,13 +23,9 @@ class UserSignin extends Component {
         this.setState({ signinMessage:'login is successful' });
         this.props.history.push('/');
       } else {
-        console.log('>>> login failed');
-        this.setState({ signinMessage:data.info.message });
+        console.log('>>> login failed:', data.info.message);
+        this.setState({ signinMessage:'login fails' });
       }
-      /*
-      const bookingDetailUrl = `/booking/${data.docs[0]._id}/detail`;
-      this.props.history.push(bookingDetailUrl);
-      */
     });
   }
   renderInputField(field) {
@@ -76,7 +71,7 @@ class UserSignin extends Component {
           <button type="submit" className="btn btn-primary">Login</button>
           <div>
             <br/>
-            Result: { this.signinMessage }
+            { this.state.signinMessage }
           </div>
         </form>
         <br/>
