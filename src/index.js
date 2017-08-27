@@ -5,8 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/app_header';
+import Footer from './components/app_footer';
 import About from './components/app_about';
 
 import UserSignup from './components/user_signup';
@@ -35,7 +35,7 @@ ReactDOM.render(
           <Route path="/hello" component={Hello} />
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
-          
+
           <Route path="/" component={OfficeSearch} />
         </Switch>
         <Footer/>
