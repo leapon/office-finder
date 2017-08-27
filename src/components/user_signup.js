@@ -10,17 +10,22 @@ class UserSignup extends Component {
     super(props);
     this.state = {
       username:'',
-      password:''
+      password:'',
+      message:''
     };
   }
   onSubmit(fields) {
     console.log('user signup form submit - fields', fields);
     this.props.doUserSignup(fields, (data) => {
       console.log('callback from doUserSignup - data:', data);
-      /*
-      const bookingDetailUrl = `/booking/${data.docs[0]._id}/detail`;
-      this.props.history.push(bookingDetailUrl);
-      */
+      if (data && data.info && data.info.success) {
+        console.log('>>> signup success');
+        this.setState({ message:'signup is successful' });
+        this.props.history.push('/');
+      } else {
+        console.log('>>> signup failed:', data.info.message);
+        this.setState({ message:'signup fails' });
+      }
     });
   }
   renderInputField(field) {
@@ -53,7 +58,7 @@ class UserSignup extends Component {
             name="email"
             label="Email"
             type="text"
-            placeholder=""
+            placeholder="user@company.com"
             component={ this.renderInputField }
           />
           <Field
@@ -67,10 +72,14 @@ class UserSignup extends Component {
             name="invite_code"
             label="Invite Code"
             type="password"
-            placeholder=""
+            placeholder="Enter invitation code"
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Signup</button>
+          <br/>
+          <div>
+            <span className="status-message">{ this.state.message }</span>
+          </div>
         </form>
         <br/>
       </div>
