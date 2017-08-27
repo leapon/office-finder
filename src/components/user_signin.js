@@ -10,13 +10,23 @@ class UserSignin extends Component {
     super(props);
     this.state = {
       username:'',
-      password:''
+      password:'',
+      signinData: {},
+      signinMessage: 'n/a'
     };
   }
   onSubmit(fields) {
     console.log('user signup form submit - fields', fields);
     this.props.doUserSignin(fields, (data) => {
       console.log('callback from doUserSignin - data:', data);
+      if (data && data.info && data.info.success) {
+        console.log('>>> login success');
+        this.setState({ signinMessage:'login is successful' });
+        this.props.history.push('/');
+      } else {
+        console.log('>>> login failed');
+        this.setState({ signinMessage:data.info.message });
+      }
       /*
       const bookingDetailUrl = `/booking/${data.docs[0]._id}/detail`;
       this.props.history.push(bookingDetailUrl);
@@ -64,6 +74,10 @@ class UserSignin extends Component {
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Login</button>
+          <div>
+            <br/>
+            Result: { this.signinMessage }
+          </div>
         </form>
         <br/>
       </div>
