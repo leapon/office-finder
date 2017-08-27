@@ -5,6 +5,7 @@ const BOOK_OFFICE = 'BOOK_OFFICE';
 const OFFICE_DETAIL = 'OFFICE_DETAIL';
 const BOOKING_DETAIL = 'BOOKING_DETAIL';
 const USER_SIGNUP = 'USER_SIGNUP';
+const USER_SIGNIN = 'USER_SIGNIN';
 
 const OFFICE_STORE_URL = 'http://officestore.leapon.com';
 const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW5AbGVhcG9uLmNvbSIsImlhdCI6MTUwMzUxODY1MX0.fDq7RnkL4YgxqyozubXL1eBF5SBW4j4x9Vq_iT2ouyc';
@@ -15,7 +16,7 @@ const OFFICE_DETAIL_URL = `${OFFICE_STORE_URL}/data/office/get?token=${API_KEY}`
 const OFFICE_BOOK_URL = `${OFFICE_STORE_URL}/data/office/book?token=${API_KEY}`;
 const BOOKING_DETAIL_URL = `${OFFICE_STORE_URL}/data/booking/get?token=${API_KEY}`;
 const USER_SIGNUP_URL = `${OFFICE_STORE_URL}/mobile/user/signup`;
-const USER_SIGNIN_URL = `${OFFICE_STORE_URL}/mobile/user/`;
+const USER_SIGNIN_URL = `${OFFICE_STORE_URL}/mobile/user/login`;
 
 export function selectOffice(office) {
   console.log('office selected:', office.name);
@@ -72,13 +73,11 @@ export function doUserSignup(values, callback) {
   const url = `${USER_SIGNUP_URL}`;
   console.log('doUserSignup url:', url);
   console.log('doUserSignup values:', values);
-  /*
   const request = axios.post(url, values)
     .then((response) => callback(response.data));
-  */
   return {
     type: USER_SIGNUP,
-    payload: {} // request
+    payload: request
   }
 }
 

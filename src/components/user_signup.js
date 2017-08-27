@@ -50,10 +50,10 @@ class UserSignup extends Component {
         <hr/>
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <Field
-            name="username"
-            label="Username"
+            name="email"
+            label="Email"
             type="text"
-            placeholder="Enter user email"
+            placeholder=""
             component={ this.renderInputField }
           />
           <Field
@@ -61,6 +61,13 @@ class UserSignup extends Component {
             label="Password"
             type="password"
             placeholder="Minimum 6 characters"
+            component={ this.renderInputField }
+          />
+          <Field
+            name="invite_code"
+            label="Invite Code"
+            type="password"
+            placeholder=""
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Signup</button>
