@@ -10,6 +10,7 @@ import Footer from './components/app_footer';
 import About from './components/app_about';
 
 import UserSignup from './components/user_signup';
+import UserSignin from './components/user_signin';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
@@ -28,6 +29,8 @@ ReactDOM.render(
         <Header/>
         <Switch>
           <Route path="/user/signup" component={UserSignup} />
+          <Route path="/user/signin" component={UserSignin} />
+          <Route path="/user/login" component={UserSignin} />
           <Route path="/about" component={About} />
           <Route path="/office/:id/booking" component={OfficeBooking} />
           <Route path="/office/search" component={OfficeSearch} />

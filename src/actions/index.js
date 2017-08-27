@@ -68,7 +68,6 @@ export function getBookingDetail(id) {
   }
 }
 
-
 export function doUserSignup(values, callback) {
   const url = `${USER_SIGNUP_URL}`;
   console.log('doUserSignup url:', url);
@@ -81,3 +80,14 @@ export function doUserSignup(values, callback) {
   }
 }
 
+export function doUserSignin(values, callback) {
+  const url = `${USER_SIGNIN_URL}`;
+  console.log('doUserSignin url:', url);
+  console.log('doUserSignin values:', values);
+  const request = axios.post(url, values)
+    .then((response) => callback(response.data));
+  return {
+    type: USER_SIGNIN,
+    payload: request
+  }
+}
