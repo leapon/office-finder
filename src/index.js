@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header';
 import Footer from './components/footer';
+import UserSignup from './components/user_signup';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
@@ -24,6 +25,7 @@ ReactDOM.render(
       <div>
         <Header/>
         <Switch>
+          <Route path="/user/signup" component={UserSignup} />
           <Route path="/hello" component={Hello} />
           <Route path="/office/:id/booking" component={OfficeBooking} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
