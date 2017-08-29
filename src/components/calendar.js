@@ -5,8 +5,8 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      year: this.props.year,
-      month: this.props.month,
+      year: this.props.year || 2017,
+      month: this.props.month || 8,
       type: 'month'
     };
   }
@@ -90,6 +90,7 @@ class CalendarMonth extends React.Component {
             dayHeaders.map(function(dayHeader) {
                 calendarItems.push(<CalendarHeader name={ dayHeader.name } key={ dayHeader.name } />);
             });
+      /*
       days.map(function(day) {
           calendarItems.push(
               <CalendarDay
@@ -99,6 +100,7 @@ class CalendarMonth extends React.Component {
               />
           );
       });
+      */
       return (
           <div className="calendar-container">
               <div className="calendar-caption">
