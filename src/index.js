@@ -19,6 +19,7 @@ import reducers from './reducers';
 import SimpleForm from './components/simple_form';
 import Hello from './components/hello';
 import Clock from './components/clock';
+import Calendar from './components/calendar';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -39,7 +40,7 @@ ReactDOM.render(
           <Route path="/hello" component={Hello} />
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
-
+          <Route path="/test/calendar" component={Calendar} />
           <Route path="/" component={OfficeSearch} />
         </Switch>
         <Footer/>
