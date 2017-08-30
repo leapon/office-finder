@@ -9,8 +9,9 @@ class Header extends Component {
       <nav className="navbar navbar-light">
         <a className="navbar-brand" href="/">OfficeFinder</a>
         <ul className="nav navbar-nav">
-          <li className="nav-item nav-link">Help</li>
-          <li className="nav-item nav-link">About</li>
+          <li className="nav-item">
+            <a className="nav-link" href="/about">About</a>
+          </li>
         </ul>
       </nav>
     );
