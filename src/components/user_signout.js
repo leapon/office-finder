@@ -9,13 +9,13 @@ class UserSignout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message:'no message'
+      message:''
     };
   }
   componentDidMount() {
     console.log('>>> componentDidMount');
     this.props.doUserSignout((data) => {
-      console.log('>>> callback from doUserSignout - data:', data);
+      setState({ message:'You are signed out' });
     });
   }
   render() {

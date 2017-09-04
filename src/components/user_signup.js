@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { doUserSignup } from '../actions';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 
 class UserSignup extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class UserSignup extends Component {
     this.state = {
       username:'',
       password:'',
-      message:''
+      message:'',
+      message_class:''
     };
   }
   onSubmit(fields) {
@@ -81,7 +83,14 @@ class UserSignup extends Component {
             <span className="status-message">{ this.state.message }</span>
           </div>
         </form>
-        <br/>
+        <br/><br/>
+        <div>
+          Registered user can <Link className="nav-link" to={`/user/signin`} >signin here</Link>
+          <br/>
+          <div className={ this.state.message_class }>
+            { this.state.message }
+          </div>
+        </div>
       </div>
     );
   }
