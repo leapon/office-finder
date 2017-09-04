@@ -35,7 +35,7 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('>>> app_header mapStateToProps state:', state);
+  //console.log('>>> app_header mapStateToProps state:', state);
   return {
     activeUser: state.activeUser || null
   }

@@ -11,6 +11,7 @@ import About from './components/app_about';
 
 import UserSignup from './components/user_signup';
 import UserSignin from './components/user_signin';
+import UserSignout from './components/user_signout';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
 import BookingDetail from './components/booking_detail';
@@ -32,11 +33,13 @@ ReactDOM.render(
           <Route path="/user/signup" component={UserSignup} />
           <Route path="/user/signin" component={UserSignin} />
           <Route path="/user/login" component={UserSignin} />
-          <Route path="/about" component={About} />
+          <Route path="/user/signout" component={UserSignout} />
+
           <Route path="/office/:id/booking" component={OfficeBooking} />
           <Route path="/office/search" component={OfficeSearch} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
 
+          <Route path="/about" component={About} />
           <Route path="/hello" component={Hello} />
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
