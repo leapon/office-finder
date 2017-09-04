@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Home from './components/app_home';
 import Header from './components/app_header';
 import Footer from './components/app_footer';
 import About from './components/app_about';
@@ -37,7 +38,7 @@ ReactDOM.render(
           <Route path="/user/signout" component={UserSignout} />
 
           <Route path="/office/:id/booking" component={OfficeBooking} />
-          <Route path="/office/search" component={OfficeSearch} />
+          <Route path="/office/search" component={requireAuth(OfficeSearch)} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
 
           <Route path="/about" component={About} />
@@ -45,7 +46,7 @@ ReactDOM.render(
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
           <Route path="/test/calendar" component={Calendar} />
-          <Route path="/" component={ requireAuth(OfficeSearch) } />
+          <Route path="/" component={Home} />
         </Switch>
         <Footer/>
       </div>
