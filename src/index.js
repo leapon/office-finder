@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/app_header';
 import Footer from './components/app_footer';
 import About from './components/app_about';
+import requireAuth from './components/require_authentication';
 
 import UserSignup from './components/user_signup';
 import UserSignin from './components/user_signin';
@@ -44,7 +45,7 @@ ReactDOM.render(
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
           <Route path="/test/calendar" component={Calendar} />
-          <Route path="/" component={OfficeSearch} />
+          <Route path="/" component={ requireAuth(OfficeSearch) } />
         </Switch>
         <Footer/>
       </div>
