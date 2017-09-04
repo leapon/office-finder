@@ -11,7 +11,8 @@ class UserSignin extends Component {
     this.state = {
       username:'',
       password:'',
-      message: ''
+      message: '',
+      message_class: ''
     };
   }
   onSubmit(fields) {
@@ -19,10 +20,18 @@ class UserSignin extends Component {
     this.props.doUserSignin(fields, (data) => {
       console.log('callback from doUserSignin - data:', data);
       if (data && data.info && data.info.success) {
-        this.setState({ message:'login is successful' });
-        this.props.history.push('/');
+        this.setState({
+          message_class:'alert alert-success',
+          message:'login is successful, forwarding to homepage ...'
+        });
+        setTimeout(function() {
+          this.props.history.push('/');
+        }.bind(this), 1000);
       } else {
-        this.setState({ message:'login fails' });
+        this.setState({
+          message_class:'alert alert-danger',
+          message:'login fails'
+        });
       }
     });
   }
@@ -67,9 +76,11 @@ class UserSignin extends Component {
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Login</button>
-          <br/>
+          <br/><br/>
           <div>
-            <span className="status-message">{ this.state.message }</span>
+            <div className={ this.state.message_class }>
+              { this.state.message }
+            </div>
           </div>
         </form>
         <br/>
