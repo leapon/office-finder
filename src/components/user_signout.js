@@ -15,7 +15,7 @@ class UserSignout extends Component {
   componentDidMount() {
     console.log('>>> componentDidMount');
     this.props.doUserSignout((data) => {
-      setState({ message:'You are signed out' });
+      this.setState({ message:'You are signed out' });
     });
   }
   render() {
