@@ -14,15 +14,18 @@ class Header extends Component {
           <li className="nav-item">
             <Link className="nav-link" to={`/about`} >About</Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`/user/signin`} >Signin</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`/user/signup`} >Signup</Link>
-          </li>
+          { this.props.activeUser ? (
+            <li className="nav-item">
+              <Link className="nav-link" to={`/user/signout`} >Signout</Link>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <Link className="nav-link" to={`/user/signin`} >Signin</Link>
+            </li>
+          )}
           <li className="nav-item">
             <Link className="nav-link" to={`/`} >
-              user: { this.props.activeUser && this.props.activeUser.username }
+              { this.props.activeUser && this.props.activeUser.username }
             </Link>
           </li>
         </ul>
