@@ -24,7 +24,9 @@ import Hello from './components/hello';
 import Clock from './components/clock';
 import Calendar from './components/calendar';
 
-import Knight from './components/chess_knight';
+import ChessKnight from './components/chess_knight';
+import ChessSquare from './components/chess_square';
+import ChessBoard from './components/chess_board';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -49,8 +51,9 @@ ReactDOM.render(
           <Route path="/test/clock" component={Clock} />
           <Route path="/test/calendar" component={Calendar} />
           
-          
-          <Route path="/chess/knight" component={Knight} />
+          <Route path="/chess/knight" component={ChessKnight} />
+          <Route path="/chess/square" component={ChessSquare} />
+          <Route path="/chess/board" component={ChessBoard} />
           
           <Route path="/" component={Home} />
         </Switch>
