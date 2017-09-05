@@ -24,6 +24,8 @@ import Hello from './components/hello';
 import Clock from './components/clock';
 import Calendar from './components/calendar';
 
+import Knight from './components/chess_knight';
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
@@ -46,6 +48,10 @@ ReactDOM.render(
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
           <Route path="/test/calendar" component={Calendar} />
+          
+          
+          <Route path="/chess/knight" component={Knight} />
+          
           <Route path="/" component={Home} />
         </Switch>
         <Footer/>
