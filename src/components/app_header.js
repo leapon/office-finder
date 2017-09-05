@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -7,10 +9,24 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <a className="navbar-brand" href="/">OfficeFinder</a>
+        <Link className="navbar-brand" to={`/`} >OfficeFinder</Link>
         <ul className="nav navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="/about">About</a>
+            <Link className="nav-link" to={`/about`} >About</Link>
+          </li>
+          { this.props.activeUser ? (
+            <li className="nav-item">
+              <Link className="nav-link" to={`/user/signout`} >Signout</Link>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <Link className="nav-link" to={`/user/signin`} >Signin</Link>
+            </li>
+          )}
+          <li className="nav-item">
+            <Link className="nav-link" to={`/`} >
+              { this.props.activeUser && this.props.activeUser.username }
+            </Link>
           </li>
         </ul>
       </nav>
@@ -18,4 +34,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    activeUser: state.activeUser || null
+  }
+}
+
+export default connect(mapStateToProps)(Header);

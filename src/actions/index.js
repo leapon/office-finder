@@ -6,6 +6,7 @@ const OFFICE_DETAIL = 'OFFICE_DETAIL';
 const BOOKING_DETAIL = 'BOOKING_DETAIL';
 const USER_SIGNUP = 'USER_SIGNUP';
 const USER_SIGNIN = 'USER_SIGNIN';
+const USER_SIGNOUT = 'USER_SIGNOUT';
 
 const OFFICE_STORE_URL = 'http://officestore.leapon.com';
 const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW5AbGVhcG9uLmNvbSIsImlhdCI6MTUwMzUxODY1MX0.fDq7RnkL4YgxqyozubXL1eBF5SBW4j4x9Vq_iT2ouyc';
@@ -89,5 +90,14 @@ export function doUserSignin(values, callback) {
   return {
     type: USER_SIGNIN,
     payload: request
+  }
+}
+
+export function doUserSignout(callback) {
+  console.log('doUserSignout');
+  callback();
+  return {
+    type: USER_SIGNOUT,
+    payload: { username:'' }
   }
 }

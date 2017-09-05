@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { doUserSignup } from '../actions';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 
 class UserSignup extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class UserSignup extends Component {
     this.state = {
       username:'',
       password:'',
-      message:''
+      message:'',
+      message_class:''
     };
   }
   onSubmit(fields) {
@@ -19,12 +21,18 @@ class UserSignup extends Component {
     this.props.doUserSignup(fields, (data) => {
       console.log('callback from doUserSignup - data:', data);
       if (data && data.info && data.info.success) {
-        console.log('>>> signup success');
-        this.setState({ message:'signup is successful' });
-        this.props.history.push('/');
+        this.setState({
+          message_class:'alert alert-success',
+          message:'signup is successful, forwarding to homepage ...'
+        });
+        setTimeout(function() {
+          this.props.history.push('/');
+        }.bind(this), 1000);
       } else {
-        console.log('>>> signup failed:', data.info.message);
-        this.setState({ message:'signup fails' });
+        this.setState({
+          message_class:'alert alert-danger',
+          message:'signup fails'
+        });
       }
     });
   }
@@ -76,12 +84,16 @@ class UserSignup extends Component {
             component={ this.renderInputField }
           />
           <button type="submit" className="btn btn-primary">Signup</button>
-          <br/>
-          <div>
-            <span className="status-message">{ this.state.message }</span>
-          </div>
         </form>
         <br/>
+        <div>
+          Registered user can <Link className="nav-link" to={`/user/signin`} >signin here</Link>
+          <br/><br/>
+          <div className={ this.state.message_class }>
+            { this.state.message }
+          </div>
+          <br/>
+        </div>
       </div>
     );
   }
