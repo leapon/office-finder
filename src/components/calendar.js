@@ -124,5 +124,49 @@ class CalendarMonth extends React.Component {
     }
   }
 
+  class CalendarDay extends React.Componetn {
+    constructor(props) {
+      super(props)
+      this.state = {
+        selected: false,
+        hover: false,
+        dayClassNames: ['calendar-day'],
+        dayHeaderClassNames: ['calendar-day-header'],
+        dayBodyClassNames: ['calendar-day-body']
+      }
+    }
+    componentWillMount() {
+      this.state.dayClassNames.push(this.props.monthStatus, this.props.todayStatus, this.props.dayStatus);
+      this.state.dayHeaderClassNames.push(this.props.monthStatus);
+    }
+    onMouseEnter(e) {
+      this.state.dayClassNames.push('calendar-day-hover');
+      this.forceUpdate();
+    }
+    onMouseLeave(e) {
+      var classIndex = this.state.dayClassNames.indexOf('calendar-day-hover');
+      if (classIndex >= 0) {
+          this.state.dayClassNames.splice(classIndex, 1);
+      }
+      this.forceUpdate();
+    }
+    render() {
+      var events = this.props.events;
+      var items = [];
+      this.props.events.map(function(event) {
+          items.push(<div className={ 'calendar-item ' + event.category }>{ event.title }</div>);
+      });
+      return (
+          <div className={ this.state.dayClassNames.join(' ') }
+              onClick={ this.onClick }
+              onMouseEnter={ this.onMouseEnter }
+              onMouseLeave={ this.onMouseLeave }
+              >
+              <div className={ this.state.dayHeaderClassNames.join(' ') }>{ this.props.name }</div>
+              <div className={ this.state.dayBodyClassNames.join(' ') }>{ items }</div>
+          </div>
+        );
+    }
+  }
 
 export default Calendar;
