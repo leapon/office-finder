@@ -124,7 +124,7 @@ class CalendarMonth extends React.Component {
     }
   }
 
-  class CalendarDay extends React.Componetn {
+  class CalendarDay extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
