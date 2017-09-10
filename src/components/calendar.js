@@ -90,7 +90,7 @@ class CalendarMonth extends React.Component {
             dayHeaders.map(function(dayHeader) {
                 calendarItems.push(<CalendarHeader name={ dayHeader.name } key={ dayHeader.name } />);
             });
-      /*
+
       days.map(function(day) {
           calendarItems.push(
               <CalendarDay
@@ -100,7 +100,7 @@ class CalendarMonth extends React.Component {
               />
           );
       });
-      */
+      
       return (
           <div className="calendar-container">
               <div className="calendar-caption">
