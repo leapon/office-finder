@@ -25,6 +25,13 @@ npm run start_pub_8090
 webpack -p --config ./webpack.config.js 
 ```
 
+# Run production release with http-server
+```
+npm install -g http-server
+
+http-server 
+```
+
 # Run with pm2
 ```
 pm2 start ./start --name officefinder 
