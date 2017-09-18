@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getOfficeDetail } from '../actions';
 import { bindActionCreators } from 'redux';
+import Calendar from './calendar';
 
 class OfficeAvailability extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class OfficeAvailability extends Component {
           <b>Availability for { this.props.office.name }</b>
           <br/><br/>
           <div>
-            <p>Address: { this.props.office.address }</p>
+            <Calendar />
           </div>
         </div>
       )
