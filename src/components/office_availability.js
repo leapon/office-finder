@@ -34,7 +34,7 @@ class OfficeAvailability extends Component {
           <b>Availability for { this.props.office.name }</b>
           <br/><br/>
           <div>
-            <Calendar />
+            <Calendar year="2010" month="5"/>
           </div>
         </div>
       )
