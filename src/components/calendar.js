@@ -90,7 +90,7 @@ class CalendarMonth extends React.Component {
         var dayStatus = '';
         var eventArray = []
         if (events.month === "9") {
-          for (var i = 0; i <= events)
+          //for (var i = 0; i <= events)
         }
         // today status is only set for this month and today
         if (isThisMonth && isToday) {
