@@ -16,6 +16,7 @@ import UserSignin from './components/user_signin';
 import UserSignout from './components/user_signout';
 import OfficeSearch from './components/office_search';
 import OfficeBooking from './components/office_booking';
+import OfficeAvailability from './components/office_availability';
 import BookingDetail from './components/booking_detail';
 import reducers from './reducers';
 
@@ -38,6 +39,7 @@ ReactDOM.render(
           <Route path="/user/signout" component={UserSignout} />
 
           <Route path="/office/:id/booking" component={OfficeBooking} />
+          <Route path="/office/:id/availability" component={OfficeAvailability} />
           <Route path="/office/search" component={requireAuth(OfficeSearch)} />
           <Route path="/booking/:id/detail" component={BookingDetail} />
 
