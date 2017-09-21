@@ -1,8 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 
-//LINE 89 IS WHERE WORK STOPS
-
 class Calendar extends React.Component {
   constructor(props) {
     super(props)
