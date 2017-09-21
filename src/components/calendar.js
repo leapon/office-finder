@@ -50,24 +50,45 @@ class CalendarMonth extends React.Component {
     var days = [];
 
     //Events
-    var events = {
-      "1": {},
-      "2": {},
-      "3": {},
-      "4": {},
-      "5": {},
-      "6": {},
-      "7": {},
-      "8": {},
-      "9": {
-        "1": "gas bill due",
-        "1": "report due",
-        "11": "test"
-      },
-      "10": {},
-      "11": {},
-      "12": {}
-    };
+    var jan = {
+
+    }
+    var feb = {
+
+    }
+    var mar = {
+
+    }
+    var apr = {
+
+    }
+    var may = {
+
+    }
+    var jun = {
+
+    }
+    var jul = {
+
+    }
+    var aug = {
+      "1": "eat tacos"
+    }
+    var sep = {
+      "1": "gas bill due",
+      "1": "report due",
+      "11": "test"
+    }
+    var oct = {
+
+    }
+    var nov = {
+
+    }
+    var dec = {
+
+    }
+    var monthArray = [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
 
     var monthFirstDay = moment({ year:this.state.year, month:this.state.month-1, day:1 });
     var monthLastDay = moment(monthFirstDay).add(1, 'month').subtract(1, 'day');
@@ -88,9 +109,20 @@ class CalendarMonth extends React.Component {
         var isToday = targetDayKey === moment().format('YYYY-MM-DD');
         var todayStatus = '';
         var dayStatus = '';
-        var eventArray = []
-        if (events.month === "9") {
-          for (var i = 0; i <= events)
+
+        // Access events for the month
+        var monthEvents = monthArray[this.state.month - 1]
+        // Get events for the day
+        var events = monthEvents[(targetDay.date()).toString()]
+        // Check if date is in the month and if it is an Object
+        // If it is undefined (i.e the day has no events),
+        // events is set to be nothing
+        if (isThisMonth === true) {
+          if (Object.keys(monthEvents).length === 0 && monthEvents.constructor === Object) {
+            if (typeof events === undefined) {
+              events = ""
+            }
+          }
         }
         // today status is only set for this month and today
         if (isThisMonth && isToday) {
@@ -106,7 +138,9 @@ class CalendarMonth extends React.Component {
         days.push({
             name: targetDay.date(),
             key: arrayKey,
-            dayEvents: eventArray,
+            id: arrayKey,
+            month: this.state.month,
+            dayEvents: events,
             monthStatus:  isThisMonth ? 'active' : 'inactive',
             todayStatus: todayStatus,
             dayStatus: dayStatus
@@ -120,7 +154,7 @@ class CalendarMonth extends React.Component {
       days.map(function(day) {
           calendarItems.push(
               <CalendarDay
-                  name={ day.name } key={ day.key } events={ day.dayEvents }
+                  name={ day.name } key={ day.key } id={ day.id } month={ day.month } events={ day.dayEvents }
                   dayStatus={ day.dayStatus } monthStatus={ day.monthStatus }
                   todayStatus={ day.todayStatus }
               />
@@ -179,7 +213,31 @@ class CalendarMonth extends React.Component {
     }
     */
     render() {
-      var events = this.props.events;
+      //This code makes sure no duplicate events are created
+      //Get the month displayed on calendar
+      var realMonth = this.props.month
+      // Convert to String
+      realMonth = realMonth.toString()
+      // Get unique id for each day
+      var id = this.props.id
+      // Make an array with the id split
+      var idSplit = id.split("")
+      // Concatenate the month
+      var dayMonth = idSplit[11] + idSplit[12]
+
+      //Make format universal
+      if (realMonth.length != 2) {
+        realMonth = "0" + realMonth
+      }
+
+      // Event
+      var events = <div className={ this.state.dayBodyClassNames.join(' ') }>{ this.props.events }</div>
+
+      //Check if months are the same
+      if (realMonth != dayMonth) {
+        events = <div></div>
+      }
+
       return (
           <div className={ this.state.dayClassNames.join(' ') }
               onClick={ this.onClick }
@@ -187,7 +245,7 @@ class CalendarMonth extends React.Component {
               onMouseLeave={ this.onMouseLeave }
               >
               <div className={ this.state.dayHeaderClassNames.join(' ') }>{ this.props.name }</div>
-              <div className={ this.state.dayBodyClassNames.join(' ') }>{ events }</div>
+              { events }
           </div>
         );
     }
