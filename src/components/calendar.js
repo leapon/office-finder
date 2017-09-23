@@ -74,7 +74,7 @@ class CalendarMonth extends React.Component {
     }
     var sep = {
       "1": "gas bill due",
-      "1": "report due",
+      "2": "report due",
       "11": "test"
     }
     var oct = {

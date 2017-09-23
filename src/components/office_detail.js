@@ -34,8 +34,12 @@ class OfficeDetail extends Component {
             <p>Office Location</p>
             <GoogleMap lat={ this.props.office.lat } lng={ this.props.office.lng }/>
             <hr/>
+            <Link className="btn btn-primary" to={`/office/${this.props.office.id}/availability`} >
+              Office Availability
+            </Link>
+            &nbsp;
             <Link className="btn btn-primary" to={`/office/${this.props.office.id}/booking`} >
-              Select Office
+              Book Office
             </Link>
             <br/><br/>
           </div>

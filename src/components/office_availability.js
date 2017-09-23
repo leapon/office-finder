@@ -9,7 +9,7 @@ import Calendar from './calendar';
 class OfficeAvailability extends Component {
   constructor(props) {
     super(props);
-    this.state = { id:'', month:8, year:2017 };
+    this.state = { id:'', month:9, year:2017 };
   }
   componentDidMount() {
     const { id } = this.props.match.params;
