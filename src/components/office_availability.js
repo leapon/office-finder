@@ -21,16 +21,16 @@ class OfficeAvailability extends Component {
     console.log('>>> adjustDate', type);
     switch(type) {
     case 'month_decrease':
-      this.setState({month:this.state.month-1});
+      this.setState({ month:this.state.month-1 });
       break;
     case 'month_increase':
-      this.setState({month:this.state.month+1});
+      this.setState({ month:this.state.month+1 });
       break;
     case 'year_decrease':
-      this.setState({year:this.state.year-1});
+      this.setState({ year:this.state.year-1 });
       break;
     case 'year_increase':
-      this.setState({year:this.state.year+1});
+      this.setState({ year:this.state.year+1 });
       break;
     }
   }

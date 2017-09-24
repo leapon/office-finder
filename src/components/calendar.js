@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 
-class Calendar extends React.Component {
+class Calendar extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -9,6 +9,13 @@ class Calendar extends React.Component {
       month: this.props.month || 8,
       type: 'month'
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('>>> componentWillReceiveProps nextProps:', nextProps);
+    console.log('>>> state:', this.state);
+    this.setState(nextProps);
+    console.log('>>> state after:', this.state);
   }
 
   render() {
