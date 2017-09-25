@@ -18,7 +18,7 @@ class HelloClass extends Component {
       return (
         <div className="hello col-md-4">
           <button className="btn btn-primary" onClick={ this.changeName.bind(this) }>
-            Change Name
+            Add Score
           </button>
           <br/><br/>
           <NameCard name={ this.state.studentName } score={ this.state.score }></NameCard>
