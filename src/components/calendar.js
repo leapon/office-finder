@@ -5,27 +5,17 @@ class Calendar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      year: this.props.year || 2017,
-      month: this.props.month || 8,
       type: 'month'
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('>>> componentWillReceiveProps nextProps:', nextProps);
-    console.log('>>> state:', this.state);
-    this.setState(nextProps);
-    console.log('>>> state after:', this.state);
   }
 
   render() {
     var calendar = 'unknown calendar type';
     calendar =
-        <CalendarMonth
-            year = { this.state.year }
-            month = { this.state.month }
-            activeMonthOnly={ this.state.activeMonthOnly }
-        />;
+      <CalendarMonth
+        year = { this.props.year }
+        month = { this.props.month }
+      />;
     return (
       <div>{ calendar }</div>
     )
@@ -36,8 +26,6 @@ class CalendarMonth extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      year: this.props.year,
-      month: this.props.month,
       activeMonthOnly: this.props.activeMonthOnly
     }
   }
@@ -95,7 +83,7 @@ class CalendarMonth extends React.Component {
     }
     var monthArray = [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
 
-    var monthFirstDay = moment({ year:this.state.year, month:this.state.month-1, day:1 });
+    var monthFirstDay = moment({ year:this.props.year, month:this.props.month-1, day:1 });
     var monthLastDay = moment(monthFirstDay).add(1, 'month').subtract(1, 'day');
     var weekDayOfFirstDay = moment(monthFirstDay).day();
     var blockFirstDay = moment(monthFirstDay).add( -1 * weekDayOfFirstDay, 'day');
@@ -107,16 +95,16 @@ class CalendarMonth extends React.Component {
     for (var i = 0; i <= daysCount; i++) {
         var targetDay = moment(blockFirstDay).add(i, 'day');
         // make array element's key unique to avoid reuse of day component in neighboring month
-        var arrayKey = ['M', this.state.month, 'D', targetDay.format('YYYY-MM-DD')].join('_');
+        var arrayKey = ['M', this.props.month, 'D', targetDay.format('YYYY-MM-DD')].join('_');
         var targetDayKey = targetDay.format('YYYY-MM-DD');
         var events = this.state.eventsCollection && this.state.eventsCollection[targetDayKey] || [];
-        var isThisMonth = targetDay.month() === this.state.month-1;
+        var isThisMonth = targetDay.month() === this.props.month-1;
         var isToday = targetDayKey === moment().format('YYYY-MM-DD');
         var todayStatus = '';
         var dayStatus = '';
 
         // Access events for the month
-        var monthEvents = monthArray[this.state.month - 1]
+        var monthEvents = monthArray[this.props.month - 1]
         // Get events for the day
         var events = monthEvents[(targetDay.date()).toString()]
         // Check if date is in the month and if it is an Object
@@ -144,7 +132,7 @@ class CalendarMonth extends React.Component {
             name: targetDay.date(),
             key: arrayKey,
             id: arrayKey,
-            month: this.state.month,
+            month: this.props.month,
             dayEvents: events,
             monthStatus:  isThisMonth ? 'active' : 'inactive',
             todayStatus: todayStatus,

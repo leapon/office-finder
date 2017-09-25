@@ -14,11 +14,9 @@ class OfficeAvailability extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.setState({ id });
-    console.log('OfficeAvailability component mounted - id:', id);
     this.props.getOfficeDetail(id);
   }
   adjustDate(type) {
-    console.log('>>> adjustDate', type);
     switch(type) {
     case 'month_decrease':
       this.setState({ month:this.state.month-1 });
@@ -46,16 +44,16 @@ class OfficeAvailability extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="col-md-6">
           <b>Availability for { this.props.office.name }</b>
           <br/><br/>
           <p>
             <button className="btn btn-sm" onClick={ () => { this.adjustDate('month_decrease') } }>-</button>
-            { this.state.month }
+            &nbsp;{ this.state.month }&nbsp;
             <button className="btn btn-sm" onClick={ () => { this.adjustDate('month_increase') } }>+</button>
             &nbsp; / &nbsp;
             <button className="btn btn-sm" onClick={ () => { this.adjustDate('year_decrease') } }>-</button>
-            { this.state.year }
+            &nbsp;{ this.state.year }&nbsp;
             <button className="btn btn-sm" onClick={ () => { this.adjustDate('year_increase') } }>+</button>
           </p>
           <div>
