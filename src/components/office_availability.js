@@ -9,14 +9,28 @@ import Calendar from './calendar';
 class OfficeAvailability extends Component {
   constructor(props) {
     super(props);
-    this.state = { id:'' };
+    this.state = { id:'', month:9, year:2017 };
   }
   componentDidMount() {
     const { id } = this.props.match.params;
     this.setState({ id });
-    console.log('OfficeAvailability component mounted - id:', id);
-    //this.props.change('office_id', id);
     this.props.getOfficeDetail(id);
+  }
+  adjustDate(type) {
+    switch(type) {
+    case 'month_decrease':
+      this.setState({ month:this.state.month-1 });
+      break;
+    case 'month_increase':
+      this.setState({ month:this.state.month+1 });
+      break;
+    case 'year_decrease':
+      this.setState({ year:this.state.year-1 });
+      break;
+    case 'year_increase':
+      this.setState({ year:this.state.year+1 });
+      break;
+    }
   }
   render() {
     if (!this.props.office) {
@@ -30,11 +44,20 @@ class OfficeAvailability extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="col-md-6">
           <b>Availability for { this.props.office.name }</b>
           <br/><br/>
+          <p>
+            <button className="btn btn-sm" onClick={ () => { this.adjustDate('month_decrease') } }>-</button>
+            &nbsp;{ this.state.month }&nbsp;
+            <button className="btn btn-sm" onClick={ () => { this.adjustDate('month_increase') } }>+</button>
+            &nbsp; / &nbsp;
+            <button className="btn btn-sm" onClick={ () => { this.adjustDate('year_decrease') } }>-</button>
+            &nbsp;{ this.state.year }&nbsp;
+            <button className="btn btn-sm" onClick={ () => { this.adjustDate('year_increase') } }>+</button>
+          </p>
           <div>
-            <Calendar year="2010" month="5"/>
+            <Calendar year={ this.state.year } month={ this.state.month} />
           </div>
         </div>
       )

@@ -22,6 +22,7 @@ import reducers from './reducers';
 
 import SimpleForm from './components/simple_form';
 import Hello from './components/hello';
+import HelloClass from './components/hello_class';
 import Clock from './components/clock';
 import Calendar from './components/calendar';
 
@@ -44,7 +45,8 @@ ReactDOM.render(
           <Route path="/booking/:id/detail" component={BookingDetail} />
 
           <Route path="/about" component={About} />
-          <Route path="/hello" component={Hello} />
+          <Route path="/test/hello" component={Hello} />
+          <Route path="/test/helloclass" component={HelloClass} />
           <Route path="/test/simple" component={SimpleForm} />
           <Route path="/test/clock" component={Clock} />
           <Route path="/test/calendar" component={Calendar} />

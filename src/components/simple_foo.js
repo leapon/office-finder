@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 
 const propTypes = {};
-
 const defaultProps = {};
 
 class SimpleFoo extends React.Component {
