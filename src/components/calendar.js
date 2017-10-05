@@ -6,7 +6,7 @@ class Calendar extends React.Component {
     super(props)
     this.state = {
       year: this.props.year || 2017,
-      month: this.props.month || 8,
+      month: this.props.month || 9,
       type: 'month'
     };
   }
@@ -47,25 +47,8 @@ class CalendarMonth extends React.Component {
       ];
     var days = [];
 
-    //Events
-    var events = {
-      "1": {},
-      "2": {},
-      "3": {},
-      "4": {},
-      "5": {},
-      "6": {},
-      "7": {},
-      "8": {},
-      "9": {
-        "1": "gas bill due",
-        "1": "report due",
-        "11": "test"
-      },
-      "10": {},
-      "11": {},
-      "12": {}
-    };
+
+  
 
     var monthFirstDay = moment({ year:this.state.year, month:this.state.month-1, day:1 });
     var monthLastDay = moment(monthFirstDay).add(1, 'month').subtract(1, 'day');
@@ -86,10 +69,6 @@ class CalendarMonth extends React.Component {
         var isToday = targetDayKey === moment().format('YYYY-MM-DD');
         var todayStatus = '';
         var dayStatus = '';
-        var eventArray = []
-        if (events.month === "9") {
-          //for (var i = 0; i <= events)
-        }
         // today status is only set for this month and today
         if (isThisMonth && isToday) {
           todayStatus = 'today';
@@ -104,7 +83,7 @@ class CalendarMonth extends React.Component {
         days.push({
             name: targetDay.date(),
             key: arrayKey,
-            dayEvents: eventArray,
+            events: eventArray,
             monthStatus:  isThisMonth ? 'active' : 'inactive',
             todayStatus: todayStatus,
             dayStatus: dayStatus
@@ -118,13 +97,13 @@ class CalendarMonth extends React.Component {
       days.map(function(day) {
           calendarItems.push(
               <CalendarDay
-                  name={ day.name } key={ day.key } events={ day.dayEvents }
+                  name={ day.name } key={ day.key } events={ day.events }
                   dayStatus={ day.dayStatus } monthStatus={ day.monthStatus }
                   todayStatus={ day.todayStatus }
               />
           );
       });
-
+      sl
       return (
           <div className="calendar-container">
               <div className="calendar-caption">
@@ -163,7 +142,6 @@ class CalendarMonth extends React.Component {
       this.state.dayClassNames.push(this.props.monthStatus, this.props.todayStatus, this.props.dayStatus);
       this.state.dayHeaderClassNames.push(this.props.monthStatus);
     }
-    /*
     onMouseEnter(e) {
       this.state.dayClassNames.push('calendar-day-hover');
       this.forceUpdate();
@@ -175,9 +153,12 @@ class CalendarMonth extends React.Component {
       }
       this.forceUpdate();
     }
-    */
     render() {
       var events = this.props.events;
+      var items = [];
+      this.props.events.map(function(event) {
+          items.push(<div className={ 'calendar-item ' + event.category }>{ event.title }</div>);
+      });
       return (
           <div className={ this.state.dayClassNames.join(' ') }
               onClick={ this.onClick }
@@ -185,7 +166,7 @@ class CalendarMonth extends React.Component {
               onMouseLeave={ this.onMouseLeave }
               >
               <div className={ this.state.dayHeaderClassNames.join(' ') }>{ this.props.name }</div>
-              <div className={ this.state.dayBodyClassNames.join(' ') }>{ events }</div>
+              <div className={ this.state.dayBodyClassNames.join(' ') }>{ items }</div>
           </div>
         );
     }
