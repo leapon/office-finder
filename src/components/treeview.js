@@ -57,26 +57,35 @@ class TreeView extends React.Component {
       layout: props.layout
     }
   render() {
-    var parents = []
+    var levels = []
     var nodeArr = []
     var lowestLevel = 0
     var numNodes = this.state.layout.length;
-    for(x in this.state.layout) {
+    for (object in this.state.layout) {
+      var level = Object.keys(object)[1];
+      levels.push(level)
+    }
+    for (x in this.state.layout) {
       if (x.level > lowestLevel) {
-          lowestLevel = x
+          var lowestLevel = x
       }
     }
 
     for(var i = 0; i < numNodes; i++) {
       let hasChildren
-      if ((this.state.layout[i]).level) < lowestLevel) {
-        
+      let nodeId
+      if ((this.state.layout[i]).level < lowestLevel) {
+        hasChildren = true;
+      }
+      if (!((this.state.layout[i]).level in levels)) {
+        nodeId = "A".repeat(this.state.layout[i].level)
       }
       nodeArr.push(
         <TreeNode
           level = (this.state.layout[i]).level
           display = (this.state.layout[i]).display
-          nodesUnder
+          hasChildren = hasChildren
+          id = nodeId
         />
         )
       }
@@ -90,7 +99,7 @@ class TreeNode extends React.Component {
     this.state = {
       level: props.level,
       display: props.display,
-      nodesUnder: props.nodesUnder,
+      hasChildren: props.hasChildren,
       children: props.children,
       id: props.id
     }
