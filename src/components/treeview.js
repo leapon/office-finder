@@ -46,6 +46,9 @@ Nodes:
 */
 
 // Take into account the order of the elements
+// Check if there is children
+// Create ids relating to level and use ABC letters to track
+// A for first node, AA for nested nodes, AAA, AAAA, etc.
 class TreeView extends React.Component {
   constructor(props) {
     super(props);
@@ -54,24 +57,26 @@ class TreeView extends React.Component {
       layout: props.layout
     }
   render() {
+    var parents = []
     var nodeArr = []
     var lowestLevel = 0
     var numNodes = this.state.layout.length;
     for(x in this.state.layout) {
       if (x.level > lowestLevel) {
-        lowestLevel = x.level
+          lowestLevel = x
       }
     }
-    /*
+
     for(var i = 0; i < numNodes; i++) {
       let hasChildren
       if ((this.state.layout[i]).level) < lowestLevel) {
-
+        
       }
       nodeArr.push(
         <TreeNode
           level = (this.state.layout[i]).level
           display = (this.state.layout[i]).display
+          nodesUnder
         />
         )
       }
@@ -85,8 +90,9 @@ class TreeNode extends React.Component {
     this.state = {
       level: props.level,
       display: props.display,
-      nodesUnder: props.nodesUnder
+      nodesUnder: props.nodesUnder,
+      children: props.children,
+      id: props.id
     }
   }
 }
-*/
