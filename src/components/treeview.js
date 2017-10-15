@@ -3,52 +3,23 @@ import React, { Component } from 'react';
 /*
 File layout:
 Pass in name of level, and children if applicable
-Ex:
-[
-    {
-        "name": "Top Level",
-        "children": [
-            {
-                "name": "Level 2: A",
-                "children": [
-                    {
-                        "name": "Son of A"
-                    },
-                    {
-                        "name": "Daughter of A"
-                    }
-                ]
-            },
-            {
-                "name": "Level 2: B"
-            },
-            {
-                "name": "Level 2: C",
-                "children": [
-                    {
-                        "name": "Son of C"
-                    }
-                ]
-            }
-        ]
-    }
-]
+
 Nodes:
 [
-    { display:'Top Level', level:1 },
-    { display:'Level 2: A', level:2 },
-    { display:'Son of A', level:3 },
-    { display:'Daughter of A', level:3 },
-    { display:'Level 2: B', level:2 },
-    { display:'Level 2: C', level:2 },
-    { display:'Son of C', level:3 }
+    { display:'Top Level A', levels: [1] },
+    { display:'Level 2: A', levels: [1,1] },
+    { display:'Son of A', levels: [1,1,1] },
+    { display:'Daughter of A', levels: [1,1,2] },
+    { display:'Level 2: B', levels: [1,2] },
+    { display:'Level 2: C', levels: [1,3] },
+    { display:'Son of C', levels: [1,3,1] },
+    { display:'Top Level B', levels: [2] }
 ]
+
+Make sure to give levels properly
 */
 
-// Take into account the order of the elements
-// Check if there is children
-// Create ids relating to level and use ABC letters to track
-// A for first node, AA for nested nodes, AAA, AAAA, etc.
+
 class TreeView extends React.Component {
   constructor(props) {
     super(props);
@@ -56,39 +27,28 @@ class TreeView extends React.Component {
     this.state = {
       layout: props.layout
     }
+  }
   render() {
-    var levels = []
     var nodeArr = []
-    var lowestLevel = 0
     var numNodes = this.state.layout.length;
-    for (object in this.state.layout) {
-      var level = Object.keys(object)[1];
-      levels.push(level)
-    }
-    for (x in this.state.layout) {
-      if (x.level > lowestLevel) {
-          var lowestLevel = x
-      }
-    }
+    var nodeId = ""
+    var text = ""
 
-    for(var i = 0; i < numNodes; i++) {
-      let hasChildren
-      let nodeId
-      if ((this.state.layout[i]).level < lowestLevel) {
-        hasChildren = true;
-      }
-      if (!((this.state.layout[i]).level in levels)) {
-        nodeId = "A".repeat(this.state.layout[i].level)
+    for (node in layout) {
+      var level = node.levels
+      text = node.display
+
+      for (x in levels) {
+        nodeId += x.toString();
       }
       nodeArr.push(
         <TreeNode
-          level = (this.state.layout[i]).level
-          display = (this.state.layout[i]).display
-          hasChildren = hasChildren
+          level = level
+          text = text
           id = nodeId
+          nodes = nodeArr
         />
-        )
-      }
+      )
     }
   }
 }
@@ -98,10 +58,30 @@ class TreeNode extends React.Component {
 
     this.state = {
       level: props.level,
-      display: props.display,
-      hasChildren: props.hasChildren,
-      children: props.children,
-      id: props.id
+      text: props.text,
+      id: props.id,
+    }
+  }
+  render() {
+    var id = this.state.id;
+    var text = this.state.text;
+    var level = this.state.level;
+    var label = "";
+
+    function remove(array, element) {
+
+    const index = array.indexOf(element);
+    if (index !== -1) {
+        array.splice(index, 1);
+      }
+    }
+
+    if (level.length === 1) {
+      label = "parent"
+    }
+    // TODO: more ordering stuff down below
+    for (l in levels) {
+      if ()
     }
   }
 }
